@@ -4,7 +4,7 @@ def initHistogram(l, number):
         l.append([])
     return l
 
-data = [2,3,4,1,5,9,8,7,2,6]
+data = [2,3,4,2,5,9,8,7,2,6]
 bin_size = int(raw_input("Enter the width of each interval: "))
 minimum = min(data)
 maximum = max(data)
@@ -14,10 +14,7 @@ no_of_bars = ((maximum-minimum)/bin_size)+1
 histogram = initHistogram(histogram, no_of_bars)
 
 for value in data:
-    if value%bin_size:
-        barNumber = value/bin_size
-    else:
-        barNumber = (value/bin_size)-1
+    barNumber = (value-minimum)/bin_size
     histogram[barNumber].append(value)
 
 l = minimum
